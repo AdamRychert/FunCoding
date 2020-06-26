@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html onclick="licznik()">
+    <head>
+        <meta charset="utf-8">
+        <title>Kolorki</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+    </head>
+    <body  >
+        <div style="text-align: center; margin-top: 50px;">
+            <input type="button" name="red" onclick="color(1)" style="background-color: red">
+            <input type="button" name="black" onclick="color(2)" style="background-color: black">
+            <input type="button" name="white"  onclick="color(3)" style="background-color: white">
+            <input type="button" name="pink"  onclick="color(4)" style="background-color: pink">
+            <input type="button" name="cyan" onclick="color(5)"  style="background-color: cyan">
+        </div>
+        <div style="text-align: center">
+            <span style="border: 0.1px solid black; padding: 1px;" id="red">0</span>
+            <span style="border: 0.1px solid black; padding: 1px;" id="black">0</span>
+            <span style="border: 0.1px solid black; padding: 1px;" id="white">0</span>
+            <span style="border: 0.1px solid black; padding: 1px;" id="pink">0</span>
+            <span style="border: 0.1px solid black; padding: 1px;" id="cyan">0</span>     
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px;">
+            <h3>Licznik kliknięć</h3>
+            <span id="counter">0</span>
+        
+        </div>
+        
+          
+        <script type="text/javascript">
+            window.onload = function (){
+                if(localStorage.length!=0){
+                document.getElementById("red").innerHTML = localStorage.clickcount;
+                document.getElementById("black").innerHTML = localStorage.clickcount2;
+                document.getElementById("white").innerHTML = localStorage.clickcount3;
+                document.getElementById("pink").innerHTML = localStorage.clickcount4;
+                document.getElementById("cyan").innerHTML = localStorage.clickcount5;
+                }
+                
+                if (document.cookie.length !=0) {
+                    let Arr = document.cookie.split("=");
+                    document.body.style.background = Arr[1];
+                }
+            }
+            
+            
+            function licznik(){
+                        if (sessionStorage.clickcount) {
+                            sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+                        } else {
+                            sessionStorage.clickcount = 1;
+                        }
+                            document.getElementById("counter").innerHTML = sessionStorage.clickcount;
+                        }  
+            
+            
+           function color(x){
+                switch(x){
+                    case 1: document.body.style.background = "red";setCookie("color", "red", 365);
+                          if (localStorage.clickcount) {
+                  localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                    }
+                        document.getElementById("red").innerHTML = localStorage.clickcount;
+                        
+                        ;break;
+                    case 2: document.body.style.background = "black";setCookie("color", "black", 365);
+                        if (localStorage.clickcount2) {
+                            localStorage.clickcount2 = Number(localStorage.clickcount2) + 1;
+                        } else {
+                        localStorage.clickcount2 = 1;
+                        }
+                        document.getElementById("black").innerHTML = localStorage.clickcount2;
+                        ;break;
+                    case 3: document.body.style.background = "white";setCookie("color", "white", 365);
+                        if (localStorage.clickcount3) {
+                  localStorage.clickcount3 = Number(localStorage.clickcount3) + 1;
+                } else {
+                    localStorage.clickcount3 = 1;
+                    }
+                        document.getElementById("white").innerHTML = localStorage.clickcount3;
+                        ;break;
+                    case 4: document.body.style.background = "pink";setCookie("color", "pink", 365);
+                        if (localStorage.clickcount4) {
+                  localStorage.clickcount4 = Number(localStorage.clickcount4) + 1;
+                } else {
+                    localStorage.clickcount4 = 1;
+                    }
+                        document.getElementById("pink").innerHTML = localStorage.clickcount4;
+                        ;break;
+                    case 5: document.body.style.background = "cyan";setCookie("color", "cyan", 365);
+                        if (localStorage.clickcount5) {
+                  localStorage.clickcount5 = Number(localStorage.clickcount5) + 1;
+                } else {
+                    localStorage.clickcount5 = 1;
+                    }
+                        document.getElementById("cyan").innerHTML = localStorage.clickcount5;
+                        ;break;
+                    default:
+                        console.log('error');
+                }
+                
+            }
+            
+           
+//            -------------------------
+        </script>
+    </body>
+
+</html>
