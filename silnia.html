@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Silnia</title>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+         // Samo obliczanie silni
+
+            let a = Number(prompt("podaj liczbe"));
+            let wynik=1;
+            function silnia(){
+                for (i=0;i<a;i++){
+                 wynik = wynik*(a-i);
+                    console.log(wynik);
+                    // console.log(i);
+                }alert(`Silnia z liczby  ${a}   to   ${wynik}`);
+               
+            }
+            silnia()
+        </script>
+    </body>
+</html>
